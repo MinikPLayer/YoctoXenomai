@@ -4,6 +4,7 @@
 /.repo/
 /build/*
 !build/conf/
+!build/copy.sh
 pyshtables.py
 pstage/
 scripts/oe-git-proxy-socks
