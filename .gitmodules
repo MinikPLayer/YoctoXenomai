@@ -2,3 +2,7 @@
 	path = poky/meta-xilinx
 	url = https://github.com/Xilinx/meta-xilinx.git
 	branch = warrior
+[submodule "poky/meta-openembedded"]
+	path = poky/meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded.git
+	branch = warrior
