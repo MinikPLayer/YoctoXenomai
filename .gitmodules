@@ -1,0 +1,4 @@
+[submodule "poky/meta-xilinx"]
+	path = poky/meta-xilinx
+	url = https://github.com/Xilinx/meta-xilinx.git
+	branch = warrior

@@ -2,12 +2,13 @@
 *.pyo
 /*.patch
 /.repo/
-/build*/
+/build/*
+!build/conf/
 pyshtables.py
 pstage/
 scripts/oe-git-proxy-socks
 sources/
-meta-*/
+
 !meta-skeleton
 !meta-selftest
 hob-image-*.bb
