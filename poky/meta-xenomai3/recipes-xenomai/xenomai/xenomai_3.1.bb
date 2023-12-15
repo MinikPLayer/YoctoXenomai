@@ -16,7 +16,6 @@ EXTRA_OECONF += "--enable-smp --with-core=cobalt"
 FILES_${PN} += " /usr/lib"
 FILES_${PN} += " /usr/include"
 FILES_${PN} += " /usr/demo"
-FILES_${PN} += " /usr/xenomai"
 
 # do_configure() {
 # 	cd ${WORKDIR}/xenomai-3.1
