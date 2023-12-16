@@ -1,5 +1,5 @@
-part1=/dev/sde1
-part2=/dev/sde2
+part1=/dev/sdd1
+part2=/dev/sdd2
 
 echo "Copying to OUT directory..."
 ./copy.sh
