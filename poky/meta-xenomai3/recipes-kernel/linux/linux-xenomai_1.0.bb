@@ -1,3 +1,10 @@
+DESCRIPTION = "Xenomai kernel for MicroZed"
+LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
+
+COMPATIBLE_MACHINE ?= "microzed-zynq7"
+KCONFIG_MODE ?= "alldefconfig"
+KBUILD_DEFCONFIG_zynq = "xilinx_zynq_defconfig"
+
 LINUX_VERSION_EXTENSION ?= "-ipipe"
 PV = "4.19.82"
 
@@ -30,10 +37,6 @@ SRC_URI[xenomai.md5sum] = "b723010a75fa0e87a09908c40a0105e9"
 SRCREV_machine ?= "${SRCREV}"
 
 require recipes-kernel/linux/linux-yocto.inc
-require recipes-kernel/linux/linux-microblaze.inc
-
-DESCRIPTION = "Xenomai kernel for MicroZed"
-LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
 
 # Force the use of the KBUILD_DEFCONFIG even if some other defconfig was generated in the ${WORKDIR}
 do_kernel_metadata_prepend () {
@@ -50,11 +53,4 @@ do_configure_prepend () {
 do_patch() {
 	${WORKDIR}/xenomai-${XENOMAI_VERSION}/scripts/prepare-kernel.sh --linux=${S} --ipipe=${WORKDIR}/ipipe-core.patch --arch=arm
 }
-
-inherit kernel-simpleimage
-
-COMPATIBLE_MACHINE ?= "microzed-zynq7"
-
-KCONFIG_MODE ?= "alldefconfig"
-KBUILD_DEFCONFIG_zynq = "xilinx_zynq_defconfig"
 
