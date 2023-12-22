@@ -1,0 +1,8 @@
+~50.000 wiadomości na sekundę
+Około 50MB/s max
+
+Log:
+Success: 50099 msg/s
+Errors: 0 /s
+Communication errors: 0 /s
+Speed: 50099498 B/s
