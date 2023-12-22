@@ -9,7 +9,7 @@
 
 
 #define CLOCK_RES 1e-9 //Clock resolution is 1 ns by default
-RTIME loop_period = 1e4; // 1ms
+RTIME loop_period = 1e4; // 1us
 
 RT_TASK loop_task;
 

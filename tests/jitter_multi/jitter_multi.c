@@ -13,10 +13,13 @@ RTIME loop_period = 1e4; // 1us
 
 #define TASKS 6
 RTIME task_periods[TASKS] = { 1e5, 3e5, 5e5, 1e6, 2e6, 5e6 };
+// int task_priorities[TASKS] = { 99, 98, 97, 96, 95, 94 };
+// int task_priorities[TASKS] = { 94, 95, 96, 97, 98, 99 };
+int task_priorities[TASKS] = { 99, 99, 99, 99, 99, 99 };
 
 RT_TASK loop_task[TASKS];
 
-#define DATA_SIZE 1000
+#define DATA_SIZE 5000
 
 RTIME data[TASKS][DATA_SIZE];
 int data_ptr[TASKS];
@@ -30,14 +33,14 @@ void reset(int task) {
 
 void print_data(int task) {
     char filePath[30];
-    sprintf(filePath, "results/resullt%d.txt", task);
-    FILE* file = fopen(filePath, "w");
+    sprintf(filePath, "results/resullt.txt");
+    FILE* file = fopen(filePath, "a");
     if(file == NULL) {
         printf("!!! Cannot open file at %s !!!\n", filePath);
         exit(2);
     }
 
-    printf("Writing results to file %s...\n", filePath);
+    printf("Writing results to file %s from task %d...\n", filePath, task);
     fprintf(file, "data%d = [", task);
     for(int i = 1; i < DATA_SIZE; i++) {
         fprintf(file, "%lld", data[task][i]);
@@ -116,7 +119,7 @@ int main(int argc, char **argv)
         //Create the real time task
         sprintf(str, "task%d", i);
 
-        rt_task_create(&loop_task[i], str, 0, priority, 0);
+        rt_task_create(&loop_task[i], str, 0, task_priorities[i], 0);
     }
     
     for(int i = 0; i < TASKS; i++) {
