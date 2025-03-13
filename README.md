@@ -1,2 +1,2 @@
 # Xenomai layer for the Yocto project
-Created for purposes of writing my engineering thesis.
+Created for the purpose of writing my engineering thesis.
